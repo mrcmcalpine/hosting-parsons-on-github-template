@@ -3,11 +3,11 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: default
-title: Multiple Parson's Problems on One Page
+title: IGCSE Parson Puzzles
 ---
 # Parsons Practice
 
-#Calculation of Average
+# Calculation of Average
 <div id="Year9-sortableTrash" class="sortable-code"></div> 
 <div id="Year9-sortable" class="sortable-code"></div> 
 <div style="clear:both;"></div> 
