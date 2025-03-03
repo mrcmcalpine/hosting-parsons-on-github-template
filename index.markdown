@@ -7,6 +7,43 @@ title: Multiple Parson's Problems on One Page
 ---
 # Parsons Practice
 
+
+<div id="Year9-sortableTrash" class="sortable-code"></div> 
+<div id="Year9-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="Year9-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="Year9-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "for i in range(0, NumStudents):\n" +
+    "    totalClass = totalClass + Scores[i]\n" +
+    "classAverage = totalClass / NumStudents\n" +
+    "print (&#039;Class average:&#039;, classAverage)";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "Year9-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#Year9-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#Year9-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.getFeedback(); 
+  }); 
+})(); 
+</script>
+
 # 2D Array 15 markers
 #Calculate, store and output the student total from 3 assessments.
 <div id="sortableTrash" class="sortable-code"></div> 
