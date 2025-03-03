@@ -84,28 +84,24 @@ title: Multiple Parson's Problems on One Page
 })(); 
 </script>
 
-
-# 2D Array 15 markers
-#Calculate, store and output the student total from 3 assessments.
-<div id="f1sortableTrash" class="sortable-code"></div> 
-<div id="f1sortable" class="sortable-code"></div> 
-<div style="clear:both;" width =400></div> 
+# Input Validation - 1Dimensional Array 
+<div id="InputValidation-sortableTrash" class="sortable-code"></div> 
+<div id="InputValidation-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
 <p> 
-    <input id="feedbackLink" value="Get Feedback" type="button" /> 
-    <input id="newInstanceLink" value="Reset Problem" type="button" /> 
+    <input id="InputValidation-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="InputValidation-newInstanceLink" value="Reset Problem" type="button" /> 
 </p> 
 <script type="text/javascript"> 
 (function(){
-  var initial = "DECLARE AverageGrades[1:NumStudents]: OF TYPE REAL\n" +
-    "for i in range(0, NumStudents):\n" +
-    "    tot = 0\n" +
-    "    for j in range(0, NumAssessments):\n" +
-    "        tot = tot + Grades[i][j]\n" +
-    "    avgG = round(tot / NumAssessments, 2)\n" +
-    "    AverageGrades[i] = avgG\n" +
-    "    print (Names[i], &quot;average grade&quot;, avgG)";
+  var initial = "for i in range(0,NumStudents):\n" +
+    "    print (&quot;Enter your score&quot;)\n" +
+    "    Scores[i] =int(input())#INPUT 1\n" +
+    "    while Scores[i]&lt;0 or Scores[i]&gt;100:\n" +
+    "        print (&quot;Error - range 1 to 100 only&quot;)\n" +
+    "        Scores[i] = int(input())#INPUT 2";
   var parsonsPuzzle = new ParsonsWidget({
-    "sortableId": "sortable",
+    "sortableId": "InputValidation-sortable",
     "max_wrong_lines": 10,
     "grader": ParsonsWidget._graders.LineBasedGrader,
     "exec_limit": 2500,
@@ -116,11 +112,11 @@ title: Multiple Parson's Problems on One Page
   });
   parsonsPuzzle.init(initial);
   parsonsPuzzle.shuffleLines();
-  $("#newInstanceLink").click(function(event){ 
+  $("#InputValidation-newInstanceLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.shuffleLines(); 
   }); 
-  $("#feedbackLink").click(function(event){ 
+  $("#InputValidation-feedbackLink").click(function(event){ 
       event.preventDefault(); 
       parsonsPuzzle.getFeedback(); 
   }); 
