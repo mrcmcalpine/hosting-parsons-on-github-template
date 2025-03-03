@@ -11,7 +11,7 @@ title: Multiple Parson's Problems on One Page
 #Calculate, store and output the student total from 3 assessments.
 <div id="sortableTrash" class="sortable-code"></div> 
 <div id="sortable" class="sortable-code"></div> 
-<div style="clear:both;"></div> 
+<div style="clear:both;" width =150></div> 
 <p> 
     <input id="feedbackLink" value="Get Feedback" type="button" /> 
     <input id="newInstanceLink" value="Reset Problem" type="button" /> 
