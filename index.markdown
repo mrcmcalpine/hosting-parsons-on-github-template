@@ -205,3 +205,42 @@ Reset any values in the array which are below the threshold
   }); 
 })(); 
 </script>
+
+# Post condtion loop to output names and scores
+<div id="Post-conditionLoop-sortableTrash" class="sortable-code"></div> 
+<div id="Post-conditionLoop-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="Post-conditionLoop-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="Post-conditionLoop-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "Index &lt;-- 1\n" +
+    "DO\n" +
+    "   OUTPUT StudentNames[Index]\n" +
+    "   OUTPUT Scores[Index]\n" +
+    "   Index &lt;-- Index + 1\n" +
+    "LOOP UNTIL Index = NumStudents + 1";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "Post-conditionLoop-sortable",
+    "max_wrong_lines": 10,
+    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "exec_limit": 2500,
+    "can_indent": true,
+    "x_indent": 50,
+    "lang": "en",
+    "show_feedback": true
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#Post-conditionLoop-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#Post-conditionLoop-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.getFeedback(); 
+  }); 
+})(); 
+</script>
